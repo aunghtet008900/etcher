@@ -6,10 +6,6 @@ Etcher copies images to drives byte by byte, without doing any transformation to
 
 Some programs, usually oriented at making GNU/Linux live USB drives, include an option to set persistent storage. This is currently not supported by Etcher, so if you require this functionality, we advise to fallback to [UNetbootin](https://unetbootin.github.io/).
 
-## How can I deactivate desktop shortcut prompt on GNU/Linux?
-
-This is a feature provided by [AppImages](https://github.com/balena-io/etcher/blob/master/docs/appimage), where the applications prompts the user to automatically register a desktop shortcut to easily access the application. Follow the steps you can find [here](https://github.com/balena-io/etcher/blob/master/docs/USER-DOCUMENTATION.md#deactivate-desktop-shortcut-prompt-on-gnulinux).
-
 ## How do I flash Ubuntu ISOs
 
 Ubuntu images (and potentially some other related GNU/Linux distributions) have a peculiar format that allows the image to boot without any further modification from both CDs and USB drives.
@@ -20,7 +16,7 @@ Refer to [the following message from Ubuntu's mailing list](https://lists.ubuntu
 
 ## How do I run Etcher on Wayland?
 
-Electron is based on Gtk2, which can't run natively on Wayland. Fortunately, the XWayland Server provides backwards compatibility to run any X client on Wayland, including Etcher.
+Electron is based on Gtk3, which can't run natively on Wayland. Fortunately, the XWayland Server provides backwards compatibility to run any X client on Wayland, including Etcher.
 This usually works out of the box on mainstream GNU/Linux distributions that properly support Wayland. If it doesn't, make sure the xwayland.so module is being loaded by declaring it in your [weston.ini](http://manpages.ubuntu.com/manpages/wily/man5/weston.ini.5.html):
 
 ```
@@ -31,10 +27,6 @@ modules=xwayland.so
 ## What are the runtime GNU/LINUX dependencies?
 
 [This entry](https://github.com/balena-io/etcher/blob/master/docs/USER-DOCUMENTATION.md#runtime-gnulinux-dependencies) aims to provide an up to date list of runtime dependencies needed to run Etcher on a GNU/Linux system.
-
-## How can I simulate an update alert?
-
-You can set the ETCHER_FAKE_S3_LATEST_VERSION environment variable to a valid semver version (greater than the current version) to trick the application into thinking that what you put there is the latest available version, therefore causing the update notification dialog to be presented at startup. Note that the value of the variable will be ignored if it doesn't match the release type of the current application version. For example, setting the variable to a production version (e.g. ETCHER_FAKE_S3_LATEST_VERSION=2.0.0) will be ignored if you're running a snapshot build, and vice-versa. See [PUBLISHING.md](https://github.com/balena-io/etcher/blob/master/docs/PUBLISHING.md) for more details about release types.
 
 ## How can I recover the broken drive?
 
